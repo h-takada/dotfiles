@@ -32,50 +32,60 @@ NeoBundle 'bling/vim-airline.git'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'taichouchou2/vim-javascript'
+"NeoBundle 'taichouchou2/html5.vim'
+"NeoBundle 'taichouchou2/vim-javascript'
 NeoBundle 'taichouchou2/surround.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 
 NeoBundleCheck
 
 call neobundle#end()
 
-" yank（コピー）した内容をクリップボードに共有
-set clipboard=unnamed
-
-" 検索内容をハイライト
-set hlsearch
-
-" 検索で大小文字の違いを無視
+" settings
 set ignorecase
-
-" タブ入力を2つの半角スペースに
-set expandtab
-set tabstop=2
-set shiftwidth=2
-
-" 改行時の自動インデント有効化
 set autoindent
-
-" インクリメンタルサーチの有効化
-set incsearch
-
-" 行番号の表示
+set encoding=utf-8
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,sjis
+set list
+set listchars=eol:¬,tab:▸\ ,extends:>,precedes:<,trail:-
 set number
-
-" 256色表示
+set linespace=4
+set clipboard=unnamed,unnamedplus
+set virtualedit=block
+set noswapfile
+set hlsearch
+set shiftwidth=4
+set smartindent
+set incsearch
+set whichwrap=b,s,h,l,<,>,[,]
+set mouse=a
+set visualbell t_vb=
+set noerrorbells
+set t_vb=
+set foldmethod=marker
+set cursorline
+set cursorcolumn
+set scrolloff=8
+set sidescrolloff=16
+set sidescroll=1
+set tabstop=4
+set nobackup
 set t_Co=256
+set noundofile
 
 "カラースキーマを設定
 colorscheme molokai
-"colorscheme desert
 syntax on
 
 " emmet
 let g:user_emmet_mode = 'iv'
 let g:user_emmet_leader_key = '<C-e>'
 let g:use_emmet_complete_tag = 1
+let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_settings = {
       \ 'lang' : 'ja',
       \ 'html' : {
