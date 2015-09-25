@@ -21,7 +21,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-call neobundle#end()
 
 " Required:
 filetype plugin indent on
@@ -29,16 +28,18 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 
-NeoBundle 'tomasr/molokai'
 NeoBundle 'bling/vim-airline.git'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'taichouchou2/vim-javascript'
+NeoBundle 'taichouchou2/surround.vim'
+
 
 NeoBundleCheck
 
-
-
-colorscheme molokai
-
-syntax on
+call neobundle#end()
 
 " yank（コピー）した内容をクリップボードに共有
 set clipboard=unnamed
@@ -62,3 +63,49 @@ set incsearch
 
 " 行番号の表示
 set number
+
+" 256色表示
+set t_Co=256
+
+"カラースキーマを設定
+colorscheme molokai
+"colorscheme desert
+syntax on
+
+" emmet
+let g:user_emmet_mode = 'iv'
+let g:user_emmet_leader_key = '<C-e>'
+let g:use_emmet_complete_tag = 1
+let g:user_emmet_settings = {
+      \ 'lang' : 'ja',
+      \ 'html' : {
+      \   'filters' : 'html',
+      \ },
+      \ 'css' : {
+      \   'filters' : 'fc',
+      \ },
+      \ 'php' : {
+      \   'extends' : 'html',
+      \   'filters' : 'html',
+      \ },
+      \}
+augroup EmmitVim
+  autocmd!
+  autocmd FileType * let g:user_emmet_settings.indentation = '               '[:&tabstop]
+augroup END
+
+" HTML 5 tags
+syn keyword htmlTagName contained article aside audio bb canvas command
+syn keyword htmlTagName contained datalist details dialog embed figure
+syn keyword htmlTagName contained header hgroup keygen mark meter nav output
+syn keyword htmlTagName contained progress time ruby rt rp section time
+syn keyword htmlTagName contained source figcaption
+syn keyword htmlArg contained autofocus autocomplete placeholder min max
+syn keyword htmlArg contained contenteditable contextmenu draggable hidden
+syn keyword htmlArg contained itemprop list sandbox subject spellcheck
+syn keyword htmlArg contained novalidate seamless pattern formtarget
+syn keyword htmlArg contained formaction formenctype formmethod
+syn keyword htmlArg contained sizes scoped async reversed sandbox srcdoc
+syn keyword htmlArg contained hidden role
+syn match   htmlArg "\<\(aria-[\-a-zA-Z0-9_]\+\)=" contained
+syn match   htmlArg contained "\s*data-[-a-zA-Z0-9_]\+"
