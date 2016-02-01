@@ -34,7 +34,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 "NeoBundle 'taichouchou2/html5.vim'
 "NeoBundle 'taichouchou2/vim-javascript'
-NeoBundle 'taichouchou2/surround.vim'
+""NeoBundle 'taichouchou2/surround.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
@@ -78,7 +78,7 @@ set t_Co=256
 set noundofile
 
 "カラースキーマを設定
-colorscheme molokai
+colorscheme desert
 syntax on
 
 " emmet

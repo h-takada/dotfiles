@@ -35,6 +35,6 @@ set nobackup
 set lines=40
 set columns=120
 "カラースキーマを設定
-colorscheme molokai
-"colorscheme desert
+"colorscheme molokai
+colorscheme desert
 syntax on
