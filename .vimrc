@@ -39,7 +39,9 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-
+NeoBundle 'AtsushiM/search-parent.vim'
+NeoBundle 'AtsushiM/sass-compile.vim'
+NeoBundle 'mustache/vim-mustache-handlebars'
 
 NeoBundleCheck
 
@@ -75,7 +77,13 @@ set sidescroll=1
 set tabstop=4
 set nobackup
 set t_Co=256
+set expandtab
 set noundofile
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.mustache setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
 
 "カラースキーマを設定
 colorscheme desert
@@ -104,6 +112,14 @@ augroup EmmitVim
   autocmd FileType * let g:user_emmet_settings.indentation = '               '[:&tabstop]
 augroup END
 
+" sass
+let g:sass_compile_auto = 1
+let g:sass_compile_cdloop = 5
+let g:sass_compile_cssdir = ['css', 'stylesheet']
+let g:sass_compile_file = ['scss', 'sass']
+let g:sass_compile_beforecmd = ''
+let g:sass_compile_aftercmd = ''
+
 " HTML 5 tags
 syn keyword htmlTagName contained article aside audio bb canvas command
 syn keyword htmlTagName contained datalist details dialog embed figure
@@ -119,3 +135,6 @@ syn keyword htmlArg contained sizes scoped async reversed sandbox srcdoc
 syn keyword htmlArg contained hidden role
 syn match   htmlArg "\<\(aria-[\-a-zA-Z0-9_]\+\)=" contained
 syn match   htmlArg contained "\s*data-[-a-zA-Z0-9_]\+"
+
+"autocmd
+au BufReadPost *.mustache set syntax=mustache
